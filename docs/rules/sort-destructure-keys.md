@@ -1,36 +1,21 @@
 # require object destructure keys to be sorted (sort-destructure-keys)
 
-Please describe the origin of the rule here.
-
+Keys in an object pattern should be sorted in alphabetical order. The exception
+being when any of those keys have a default value equal to previously
+destructured key.
 
 ## Rule Details
-
-This rule aims to...
 
 Examples of **incorrect** code for this rule:
 
 ```js
-
-// fill me in
-
+const {b, a} = someObj;
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+const {a, b} = someObj;
 
-// fill me in
-
+const {b, a = b} = someObj;
 ```
-
-### Options
-
-If there are any options, describe them here. Otherwise, delete this section.
-
-## When Not To Use It
-
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.

@@ -31,21 +31,12 @@ Add `sort-destructure-keys` to the plugins section of your `.eslintrc` configura
 ```
 
 
-Then configure the rules you want to use under the rules section.
+Then configure the rule under the rules section.
 
 ```json
 {
     "rules": {
-        "sort-destructure-keys/rule-name": 2
+        "sort-destructure-keys/sort-destructure-keys": 2
     }
 }
 ```
-
-## Supported Rules
-
-* Fill in provided rules here
-
-
-
-
-
