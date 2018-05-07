@@ -22,12 +22,15 @@ ruleTester.run('sort-destructure-keys', rule, {
     valid: [
         'const {owner, ...userRoleNames} = FaroConstants.userRoleNames;',
         'const {a, b} = someObj;',
+        'const {aBc, abd} = someObj;',
+        'const {1: a, 2: b} = someObj;',
         'const {a: foo, b} = someObj;',
         'const {b, a = b} = someObj;',
         'const {a = {}, b = {}} = someObj;',
         'const {a, b, ...other} = someObj;',
         'const {...other} = someObj;',
-        'const func = ({a, b}) => a + b;'
+        'const func = ({a, b}) => a + b;',
+        'const {a: {b, c}, d: {e, f: {g}}} = someObj;',
     ],
     invalid: [
         {
