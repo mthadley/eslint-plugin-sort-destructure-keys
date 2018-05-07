@@ -1,0 +1,29 @@
+{
+  "name": "eslint-plugin-sort-destructure-keys",
+  "version": "1.0.0",
+  "description": "require object destructure key to be sorted",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Michael Hadley",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "peerDependencies": {
+    "eslint": "~4.16.0"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "~4.16.0",
+    "mocha": "^5.1.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "license": "ISC"
+}
