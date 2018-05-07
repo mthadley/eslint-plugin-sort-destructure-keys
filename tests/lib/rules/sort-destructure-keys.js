@@ -1,8 +1,11 @@
 const rule = require('../../../lib/rules/sort-destructure-keys');
 const RuleTester = require('eslint').RuleTester;
 
-function msg(before, after) {
-    return `Expected object keys to be in sorted order. Expected ${after} to be before ${before}.`;
+function msg(second, first) {
+    return {
+        messageId: 'sort',
+        data: {first, second}
+    };
 }
 
 function just(...args) {
