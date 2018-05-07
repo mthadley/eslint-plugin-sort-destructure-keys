@@ -11,18 +11,28 @@ function just(...args) {
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2015
+        ecmaVersion: 2018
     }
 });
 
 ruleTester.run('sort-destructure-keys', rule, {
     valid: [
+        'const {owner, ...userRoleNames} = FaroConstants.userRoleNames;',
         'const {a, b} = someObj;',
-        'const {b, a = b} = someObj;'
+        'const {a: foo, b} = someObj;',
+        'const {b, a = b} = someObj;',
+        'const {a = {}, b = {}} = someObj;',
+        'const {a, b, ...other} = someObj;',
+        'const {...other} = someObj;',
+        'const func = ({a, b}) => a + b;'
     ],
     invalid: [
         {
             code: 'const {b, a} = someObj;',
+            errors: just('b', 'a')
+        },
+        {
+            code: 'const func = ({b, a}) => a + b;',
             errors: just('b', 'a')
         },
         {
