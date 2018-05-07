@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-sort-destructure-keys",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "require object destructure key to be sorted",
   "keywords": [
     "eslint",
