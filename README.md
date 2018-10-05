@@ -40,3 +40,39 @@ Then configure the rule under the rules section.
     }
 }
 ```
+
+## Rule Options
+
+```json
+{
+    "sort-destructure-keys/sort-destructure-keys": [2, {"caseSensitive": false}]
+}
+```
+
+### `caseSensitive`
+
+When `true` the rule will enforce properties to be in case-sensitive order. Default is `false`.
+
+Example of **incorrect** code for the `{"caseSensitive": false}` option:
+
+```js
+let {B, a, c} = obj;
+```
+
+Example of **correct** code for the `{"caseSensitive": false}` option:
+
+```js
+let {a, B, c} = obj;
+```
+
+Example of **incorrect** code for the `{"caseSensitive": true}` option:
+
+```js
+let {a, B, c} = obj;
+```
+
+Example of **correct** code for the `{"caseSensitive": true}` option:
+
+```js
+let {B, a, c} = obj;
+```
