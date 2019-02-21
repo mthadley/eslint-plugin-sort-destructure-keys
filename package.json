@@ -20,7 +20,7 @@
     "natural-compare-lite": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "~4.16.0",
+    "eslint": "^5.14.1",
     "mocha": "^5.1.1"
   },
   "engines": {
