@@ -89,4 +89,4 @@ let {B, a, c} = obj;
 
 ### `1.1.0`
 
-- Add `case-sensitive` option.
+- Add `caseSensitive` option.
