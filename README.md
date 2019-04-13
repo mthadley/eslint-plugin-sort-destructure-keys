@@ -76,3 +76,17 @@ Example of **correct** code for the `{"caseSensitive": true}` option:
 ```js
 let {B, a, c} = obj;
 ```
+
+## Changelog
+
+### `1.3.0`
+
+- Add support for `--fix` eslint cli flag
+
+### `1.2.0`
+
+- Add peer dependenct support for eslint `^5.0.0`.
+
+### `1.1.0`
+
+- Add `case-sensitive` option.
