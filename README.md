@@ -85,11 +85,11 @@ let {B, a, c} = obj;
 
 ### `1.2.0`
 
-- Add peer dependenct support for eslint `^5.0.0` ([#1] by [@bsonntag])
-
-[#1]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/1
-[@bsonntag]: https://github.com/bsonntag
+- Add peer dependency support for eslint `^5.0.0`
 
 ### `1.1.0`
 
-- Add `caseSensitive` option
+- Add `caseSensitive` option ([#1] by [@bsonntag])
+
+[#1]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/1
+[@bsonntag]: https://github.com/bsonntag
