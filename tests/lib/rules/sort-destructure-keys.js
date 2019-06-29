@@ -33,6 +33,7 @@ ruleTester.run('sort-destructure-keys', rule, {
         'const {a: foo, b} = someObj;',
         'const {b, a = b} = someObj;',
         'const {a = {}, b = {}} = someObj;',
+        'const {a, ...other} = someObj;',
         'const {a, b, ...other} = someObj;',
         'const {...other} = someObj;',
         'const func = ({a, b}) => a + b;',
@@ -164,5 +165,27 @@ ruleTester.run('sort-destructure-keys', rule, {
             output: 'const {aBd, abc} = someObj;',
             options: [{ caseSensitive: true }]
         },
+        {
+            code: 'const {b, a, ...rest} = someObj;',
+            errors: just('b', 'a'),
+            output: 'const {a, b, ...rest} = someObj;'
+        },
+        {
+            code: `
+                function foo({
+                    b = false,
+                    a,
+                    ...rest
+                }) {}
+            `,
+            errors: just('b', 'a'),
+            output: `
+                function foo({
+                    a,
+                    b = false,
+                    ...rest
+                }) {}
+            `
+        }
     ]
 });
