@@ -79,6 +79,15 @@ let {B, a, c} = obj;
 
 ## Changelog
 
+### `1.3.1`
+
+- Fix bug with rest properties being sorted incorrectly. ([#11], [#12], thanks [@briandastous] and [@njdancer]!)
+
+[#11]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/issues/11
+[@briandastous]: https://github.com/briandastous
+[#12]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/12
+[@njdancer]: https://github.com/njdancer
+
 ### `1.3.0`
 
 - Add support for `--fix` eslint cli flag
