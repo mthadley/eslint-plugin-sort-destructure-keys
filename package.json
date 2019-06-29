@@ -12,7 +12,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive",
-    "prettier": "prettier --check \"{lib,tests}/**/*.js\""
+    "prettier": "prettier --check \"{lib,tests}/**/*.js\"",
+    "format": "prettier --write \"{lib,tests}/**/*.js\""
   },
   "peerDependencies": {
     "eslint": "^3.0.0 || ^4.0.0 || ^5.0.0"
