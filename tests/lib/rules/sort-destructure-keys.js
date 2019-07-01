@@ -26,7 +26,6 @@ ruleTester.run("sort-destructure-keys", rule, {
           b
       } = someObj;
     `,
-    "const {owner, ...userRoleNames} = FaroConstants.userRoleNames;",
     "const {a, b} = someObj;",
     "const {aBc, abd} = someObj;",
     "const {1: a, 2: b} = someObj;",
@@ -38,6 +37,9 @@ ruleTester.run("sort-destructure-keys", rule, {
     "const {...other} = someObj;",
     "const func = ({a, b}) => a + b;",
     "const {a: {b, c}, d: {e, f: {g}}} = someObj;",
+    "const {a, ['b']: x} = someObj;",
+    "const {b, ['a']: {c = b}} = someObj;",
+    "const {a, [`b${foo}`]: x} = someObj;",
     {
       code: "const {a, b} = someObj;",
       options: [{ caseSensitive: true }]
