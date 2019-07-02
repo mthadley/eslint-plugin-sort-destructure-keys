@@ -27,6 +27,7 @@ ruleTester.run("sort-destructure-keys", rule, {
       } = someObj;
     `,
     "const {a, b} = someObj;",
+    "const {a, b: c} = someObj;",
     "const {aBc, abd} = someObj;",
     "const {1: a, 2: b} = someObj;",
     "const {a: foo, b} = someObj;",
@@ -38,8 +39,35 @@ ruleTester.run("sort-destructure-keys", rule, {
     "const func = ({a, b}) => a + b;",
     "const {a: {b, c}, d: {e, f: {g}}} = someObj;",
     "const {a, ['b']: x} = someObj;",
-    "const {b, ['a']: {c = b}} = someObj;",
+    "const {['a']: {c: d}, b} = someObj;",
     "const {a, [`b${foo}`]: x} = someObj;",
+
+    // Can't sort these because they depend on previous properties
+    "const {b, ['a']: {x = b}} = someObj;",
+    "const {a, c: {e, d = e}, b} = someObj;",
+    `
+      const {
+        a,
+        b,
+        ['c']: x,
+        ['d']: y,
+        [\`\${e}foo\`]: z
+      } = someObj;
+    `,
+    `
+      const {
+        a,
+        [\`\${e}foo\`]: y,
+        [\`\${d}foo\`]: z
+      } = someObj;
+    `,
+    `
+      const {
+        a,
+        [\`\${d}foo\`]: z,
+        [\`\${e}foo\`]: y
+      } = someObj;
+    `,
     {
       code: "const {a, b} = someObj;",
       options: [{ caseSensitive: true }]
@@ -140,11 +168,6 @@ ruleTester.run("sort-destructure-keys", rule, {
       output: "const {a, b, c: {e, d}} = someObj;"
     },
     {
-      code: "const {a, c: {e, d = e}, b} = someObj;",
-      errors: [msg("c", "b")],
-      output: "const {a, b, c: {e, d = e}} = someObj;"
-    },
-    {
       code: "const {a, c: {e, d}, b = c} = someObj;",
       errors: [msg("e", "d")],
       output: "const {a, c: {d, e}, b = c} = someObj;"
@@ -187,6 +210,32 @@ ruleTester.run("sort-destructure-keys", rule, {
             b = false,
             ...rest
         }) {}
+      `
+    },
+    {
+      code: "const {b, ['a']: x, z} = someObj;",
+      errors: just("b", "a"),
+      output: "const {['a']: x, b, z} = someObj;"
+    },
+    {
+      code: `
+        const {
+          a,
+          b,
+          ['d']: y,
+          ['c']: x,
+          [\`\${e}foo\`]: z
+        } = someObj;
+      `,
+      errors: just("d", "c"),
+      output: `
+        const {
+          a,
+          b,
+          ['c']: x,
+          ['d']: y,
+          [\`\${e}foo\`]: z
+        } = someObj;
       `
     }
   ]
