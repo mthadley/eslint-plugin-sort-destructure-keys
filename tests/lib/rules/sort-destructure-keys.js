@@ -123,26 +123,35 @@ describe("sort-destructure-keys", () => {
   });
 
   testsFor("default literals", {
-    valid: ["const {b, a = b} = someObj;", "const {a = {}, b = {}} = someObj;"],
+    valid: [
+      "const {a = {}, b = {}} = someObj;",
+      "const {a = 1, b = '2'} = someObj;"
+    ],
     invalid: [
       {
-        code: "const {a, c, b = 3} = someObj;",
+        code: "const {a, c, b = 2} = someObj;",
         errors: just("c", "b"),
-        output: "const {a, b = 3, c} = someObj;"
-      }
+        output: "const {a, b = 2, c} = someObj;"
+      },
     ]
   });
 
-  testsFor("identifier literals", {
+  testsFor("default identifiers", {
     valid: [
+      "const {b, a = b} = someObj;",
       "const {b, ['a']: {x = b}} = someObj;",
       "const {a, c: {e, d = e}, b} = someObj;"
     ],
     invalid: [
       {
         code: "const {a, c: {e, d}, b = c} = someObj;",
-        errors: [msg("e", "d")],
+        errors: just("e", "d"),
         output: "const {a, c: {d, e}, b = c} = someObj;"
+      },
+      {
+        code: "const {a, c, b = 3} = someObj;",
+        errors: just("c", "b"),
+        output: "const {a, b = 3, c} = someObj;"
       }
     ]
   });
