@@ -79,6 +79,13 @@ let {B, a, c} = obj;
 
 ## Changelog
 
+### `1.3.2`
+
+- Fix bug where computed properties were causing the rule to throw errors. ([#15], thanks [@TSMMark]!)
+
+[#15]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/issues/15
+[@TSMMark]: https://github.com/TSMMark
+
 ### `1.3.1`
 
 - Fix bug with rest properties being sorted incorrectly. ([#11], [#12], thanks [@briandastous] and [@njdancer]!)
