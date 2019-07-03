@@ -132,7 +132,7 @@ describe("sort-destructure-keys", () => {
         code: "const {a, c, b = 2} = someObj;",
         errors: just("c", "b"),
         output: "const {a, b = 2, c} = someObj;"
-      },
+      }
     ]
   });
 
