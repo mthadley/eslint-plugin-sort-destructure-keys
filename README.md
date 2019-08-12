@@ -79,6 +79,13 @@ let {B, a, c} = obj;
 
 ## Changelog
 
+### `1.3.3`
+
+- Bump add `6.0.0` to eslint peer dependency. ([#21], by [@7rulnik])
+
+[#21]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/21
+[@7rulnik]: https://github.com/7rulnik
+
 ### `1.3.2`
 
 - Fix bug where computed properties were causing the rule to throw errors. ([#15], thanks [@TSMMark]!)
