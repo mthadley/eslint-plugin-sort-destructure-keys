@@ -213,6 +213,7 @@ function testsWithParser(parser) {
 
     testsFor("computed properties", {
       valid: [
+        "const {[foo]: bar, [one]: two} = someObj;",
         "const {a, [`b${foo}`]: x} = someObj;",
         `
           const {
