@@ -79,6 +79,12 @@ let {B, a, c} = obj;
 
 ## Changelog
 
+### `1.3.4`
+
+- Fixes TypeError issue with multiple property expressions ([#20])
+
+[#20]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/issues/20
+
 ### `1.3.3`
 
 - Add `6.0.0` to eslint peer dependency. ([#21], by [@7rulnik])
