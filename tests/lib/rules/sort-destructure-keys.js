@@ -238,6 +238,24 @@ function testsWithParser(parser) {
             [\`\${e}foo\`]: y
           } = someObj;
         `,
+        `
+          const {
+            [a]: z,
+            [b]: y
+          } = someObj;
+        `,
+        `
+          const {
+            [a.foo]: z,
+            [b.bar]: y
+          } = someObj;
+        `,
+        `
+          const {
+            [b.foo]: z,
+            [a.bar]: y
+          } = someObj;
+        `,
       ],
       invalid: [
         {
