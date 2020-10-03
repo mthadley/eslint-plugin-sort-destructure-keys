@@ -51,7 +51,7 @@ Then configure the rule under the rules section.
 
 ### `caseSensitive`
 
-When `true` the rule will enforce properties to be in case-sensitive order. Default is `false`.
+When `true` the rule will enforce properties to be in case-sensitive order. Default is `true`.
 
 Example of **incorrect** code for the `{"caseSensitive": false}` option:
 
