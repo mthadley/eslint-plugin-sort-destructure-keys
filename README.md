@@ -79,6 +79,12 @@ let {B, a, c} = obj;
 
 ## Changelog
 
+### `1.4.0`
+
+- Add compatibility with eslint 8. ([#123])
+
+[#123]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/123
+
 ### `1.3.5`
 
 - Add `^7.0.0` to eslint peer dependency. ([#53], by [dsernst])
