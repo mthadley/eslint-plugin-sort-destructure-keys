@@ -12,11 +12,12 @@ function just(...args) {
   return [msg(...args)];
 }
 
-function testsWithParser(parser) {
+function testsWithParser(parser, parserOptions = {}) {
   describe(`with parser: ${parser}`, () => {
     const ruleTester = new RuleTester({
       parser: require.resolve(parser),
       parserOptions: {
+        ...parserOptions,
         ecmaVersion: 2018,
       },
     });
@@ -330,5 +331,5 @@ function testsWithParser(parser) {
 
 describe("sort-destructure-keys", () => {
   testsWithParser("espree");
-  testsWithParser("babel-eslint");
+  testsWithParser("@babel/eslint-parser", { requireConfigFile: false });
 });
