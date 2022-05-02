@@ -4,7 +4,7 @@ jobs:
   test:
     name: Test and check formatting
     runs-on: ubuntu-latest
-    container: node:12
+    container: node:14
     steps:
     - uses: actions/checkout@master
     - name: Install dependencies
