@@ -45,7 +45,7 @@ Then configure the rule under the rules section.
 
 ```json
 {
-    "sort-destructure-keys/sort-destructure-keys": [2, {"caseSensitive": false}]
+    "sort-destructure-keys/sort-destructure-keys": [2, {"caseSensitive": false, "sortWithDefaultValues": false}]
 }
 ```
 
@@ -75,6 +75,27 @@ Example of **correct** code for the `{"caseSensitive": true}` option:
 
 ```js
 let {B, a, c} = obj;
+```
+
+
+### `sortWithDefaultValues`
+
+When `false` the rule will sort keys with default values. Default is `true`.
+
+Example of **incorrect** code for the `{"sortWithDefaultValues": false}` option:
+
+```js
+const foo = 'bar'
+
+let {b, a = foo} = obj;
+```
+
+Example of **correct** code for the `{"sortWithDefaultValues": false}` option:
+
+```js
+const foo = 'bar'
+
+let {a = foo, b} = obj;
 ```
 
 ## Changelog
