@@ -148,6 +148,7 @@ function testsWithParser(parser, parserOptions = {}) {
         `const {c, b, d = 'foo', a = d} = someObj;`,
         `const {c, b, d: { e }, a = e} = someObj;`,
         `const {c, b, d: [e], a = e} = someObj;`,
+        `const {c, b, d: [, e], a = e} = someObj;`,
       ],
       invalid: [
         {
