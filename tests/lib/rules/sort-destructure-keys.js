@@ -163,9 +163,9 @@ function testsWithParser(parser, parserOptions = {}) {
         },
         // Allow identifiers or expressions, as long as they aren't the other properties
         {
-          code: "const {a, c, b = OutOfScope} = someObj;",
+          code: "const {a, c, b = outOfScope} = someObj;",
           errors: just("c", "b"),
-          output: "const {a, b = OutOfScope, c} = someObj;",
+          output: "const {a, b = outOfScope, c} = someObj;",
         },
       ],
     });
