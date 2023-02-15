@@ -142,19 +142,31 @@ function testsWithParser(parser, parserOptions = {}) {
     testsFor("default identifiers", {
       valid: [
         "const {b, a = b} = someObj;",
+        "const {b, a = foo(b)} = someObj;",
         "const {b, ['a']: {x = b}} = someObj;",
         "const {a, c: {e, d = e}, b} = someObj;",
+        `const {c, b, d = 'foo', a = d} = someObj;`,
+        `const {c, b, d: { e }, a = e} = someObj;`,
+        `const {c, b, d: [e], a = e} = someObj;`,
+        `const {c, b, d: [, e], a = e} = someObj;`,
+        `const {c, b, d: e, a = e} = someObj;`,
       ],
       invalid: [
         {
-          code: "const {a, c: {e, d}, b = c} = someObj;",
+          code: "const {a, c: {e, d}, b = a} = someObj;",
           errors: just("e", "d"),
-          output: "const {a, c: {d, e}, b = c} = someObj;",
+          output: "const {a, c: {d, e}, b = a} = someObj;",
         },
         {
           code: "const {a, c, b = 3} = someObj;",
           errors: just("c", "b"),
           output: "const {a, b = 3, c} = someObj;",
+        },
+        // Allow identifiers or expressions, as long as they aren't the other properties
+        {
+          code: "const {a, c, b = outOfScope} = someObj;",
+          errors: just("c", "b"),
+          output: "const {a, b = outOfScope, c} = someObj;",
         },
       ],
     });
