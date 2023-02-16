@@ -24,20 +24,17 @@ Add `sort-destructure-keys` to the plugins section of your `.eslintrc` configura
 
 ```json
 {
-    "plugins": [
-        "sort-destructure-keys"
-    ]
+  "plugins": ["sort-destructure-keys"]
 }
 ```
-
 
 Then configure the rule under the rules section.
 
 ```json
 {
-    "rules": {
-        "sort-destructure-keys/sort-destructure-keys": 2
-    }
+  "rules": {
+    "sort-destructure-keys/sort-destructure-keys": 2
+  }
 }
 ```
 
@@ -45,7 +42,7 @@ Then configure the rule under the rules section.
 
 ```json
 {
-    "sort-destructure-keys/sort-destructure-keys": [2, {"caseSensitive": false}]
+  "sort-destructure-keys/sort-destructure-keys": [2, { "caseSensitive": false }]
 }
 ```
 
@@ -56,25 +53,25 @@ When `true` the rule will enforce properties to be in case-sensitive order. Defa
 Example of **incorrect** code for the `{"caseSensitive": false}` option:
 
 ```js
-let {B, a, c} = obj;
+let { B, a, c } = obj;
 ```
 
 Example of **correct** code for the `{"caseSensitive": false}` option:
 
 ```js
-let {a, B, c} = obj;
+let { a, B, c } = obj;
 ```
 
 Example of **incorrect** code for the `{"caseSensitive": true}` option:
 
 ```js
-let {a, B, c} = obj;
+let { a, B, c } = obj;
 ```
 
 Example of **correct** code for the `{"caseSensitive": true}` option:
 
 ```js
-let {B, a, c} = obj;
+let { B, a, c } = obj;
 ```
 
 ## Changelog
@@ -110,7 +107,7 @@ let {B, a, c} = obj;
 - Fix bug where computed properties were causing the rule to throw errors. ([#15], thanks [@TSMMark]!)
 
 [#15]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/issues/15
-[@TSMMark]: https://github.com/TSMMark
+[@tsmmark]: https://github.com/TSMMark
 
 ### `1.3.1`
 
