@@ -79,7 +79,7 @@ let { B, a, c } = obj;
 ### `1.5.0`
 
 - Allow sorting properties with defaults when the default doesn't reference
-  other properties ([#215, by [ianobermiller]]).
+  other properties ([#215], by [ianobermiller]).
 
 [#215]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/215
 [ianobermiller]: https://github.com/ianobermiller
