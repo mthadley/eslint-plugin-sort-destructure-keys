@@ -2,14 +2,28 @@ name: CI
 on: push
 jobs:
   test:
-    name: Test and check formatting
     runs-on: ubuntu-latest
-    container: node:14
+    strategy:
+      matrix:
+        node: [12, 14, 16, 18, 20]
+    name: Test with Node ${{ matrix.node }}
     steps:
-    - uses: actions/checkout@master
-    - name: Install dependencies
-      run: npm ci
-    - name: Run the tests
-      run: npm test
-    - name: Check code formatting
-      run: npm run prettier
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+
+  format:
+    runs-on: ubuntu-latest
+    name: Check Formatting
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run prettier
