@@ -228,6 +228,7 @@ function testsWithParser(parser, parserOptions = {}) {
       valid: [
         "const {[foo]: bar, [one]: two} = someObj;",
         "const {a, [`b${foo}`]: x} = someObj;",
+        "const {prop1, prop2, [propkey1]: prop3, [propkey2]: prop4} = object;",
         `
           const {
             a,
@@ -344,4 +345,5 @@ function testsWithParser(parser, parserOptions = {}) {
 describe("sort-destructure-keys", () => {
   testsWithParser("espree");
   testsWithParser("@babel/eslint-parser", { requireConfigFile: false });
+  testsWithParser("@typescript-eslint/parser");
 });
