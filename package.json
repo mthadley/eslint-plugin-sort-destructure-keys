@@ -16,7 +16,7 @@
     "format": "prettier --write \"{lib,tests}/**/*.js\""
   },
   "peerDependencies": {
-    "eslint": "3 - 8"
+    "eslint": "3 - 9"
   },
   "dependencies": {
     "natural-compare-lite": "^1.4.0"
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/eslint-parser": "^7.15.8",
-    "eslint": "^8.1.0",
+    "eslint": "^8.37.0",
     "mocha": "^10.0.0",
     "prettier": "^2.0.1"
   },
