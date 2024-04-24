@@ -3,7 +3,10 @@ const rule = require("../../../lib/rules/sort-destructure-keys");
 const eslint = require("eslint");
 
 function eslintMajorVersion() {
-  const match = eslint.ESLint.version.match(/^(?<major>\d+)\.\d+\.\d+$/);
+  const version = eslint.CLIEngine
+    ? eslint.CLIEngine.version
+    : eslint.ESLint.version;
+  const match = version.match(/^(?<major>\d+)\.\d+\.\d+$/);
   assert.ok(match, "ESLint `version` must have a major version number.");
 
   return Number(match.groups.major);

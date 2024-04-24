@@ -11,7 +11,7 @@ jobs:
           - node: 18
             eslint: 8
           - node: 12
-            eslint: 3
+            eslint: 5
     name: node@${{ matrix.node }} and eslint@${{ matrix.eslint }}
     steps:
       - uses: actions/checkout@v3
