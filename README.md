@@ -81,7 +81,7 @@ let { B, a, c } = obj;
 - Add compatibility for ESLint 9 ([#267], by [ptb])
 
 [#267]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/267
-[ianobermiller]: https://github.com/ptb
+[ptb]: https://github.com/ptb
 
 ### `1.5.0`
 
