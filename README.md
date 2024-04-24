@@ -76,6 +76,13 @@ let { B, a, c } = obj;
 
 ## Changelog
 
+### `1.6.0`
+
+- Add compatibility for ESLint 9 ([#267], by [ptb])
+
+[#267]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/267
+[ianobermiller]: https://github.com/ptb
+
 ### `1.5.0`
 
 - Allow sorting properties with defaults when the default doesn't reference
