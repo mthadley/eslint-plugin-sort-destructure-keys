@@ -16,7 +16,7 @@
     "format": "prettier --write \"{lib,tests}/**/*.js\""
   },
   "peerDependencies": {
-    "eslint": "3 - 9"
+    "eslint": "5 - 9"
   },
   "dependencies": {
     "natural-compare-lite": "^1.4.0"

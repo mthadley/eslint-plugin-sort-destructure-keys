@@ -1,5 +1,16 @@
+const assert = require("assert");
 const rule = require("../../../lib/rules/sort-destructure-keys");
-const RuleTester = require("eslint").RuleTester;
+const eslint = require("eslint");
+
+function eslintMajorVersion() {
+  const version = eslint.CLIEngine
+    ? eslint.CLIEngine.version
+    : eslint.ESLint.version;
+  const match = version.match(/^(?<major>\d+)\.\d+\.\d+$/);
+  assert.ok(match, "ESLint `version` must have a major version number.");
+
+  return Number(match.groups.major);
+}
 
 function msg(second, first) {
   return {
@@ -14,13 +25,24 @@ function just(...args) {
 
 function testsWithParser(parser, parserOptions = {}) {
   describe(`with parser: ${parser}`, () => {
-    const ruleTester = new RuleTester({
-      parser: require.resolve(parser),
-      parserOptions: {
-        ...parserOptions,
-        ecmaVersion: 2018,
-      },
-    });
+    parserOptions = {
+      ...parserOptions,
+      ecmaVersion: 2018,
+    };
+
+    const ruleTester = new eslint.RuleTester(
+      eslintMajorVersion() >= 9
+        ? {
+            languageOptions: {
+              parser: require(parser),
+              parserOptions,
+            },
+          }
+        : {
+            parser: require.resolve(parser),
+            parserOptions,
+          },
+    );
 
     const testsFor = (name, ...args) => ruleTester.run(name, rule, ...args);
 
