@@ -76,9 +76,15 @@ let { B, a, c } = obj;
 
 ## Changelog
 
+### `2.0.0`
+
+- Drop support for ESLint versions older than 5. ([#269])
+
+[#269]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/269
+
 ### `1.6.0`
 
-- Add compatibility for ESLint 9 ([#267], by [ptb])
+- Add compatibility for ESLint 9. ([#267], by [ptb])
 
 [#267]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/267
 [ptb]: https://github.com/ptb
@@ -106,7 +112,7 @@ let { B, a, c } = obj;
 
 ### `1.3.4`
 
-- Fixes TypeError issue with multiple property expressions ([#20])
+- Fixes TypeError issue with multiple property expressions. ([#20])
 
 [#20]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/issues/20
 
