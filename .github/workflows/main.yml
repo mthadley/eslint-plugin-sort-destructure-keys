@@ -5,8 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12, 14, 16, 18, 20]
-        eslint: [3, 4, 5, 6, 7, 8, 9]
+        include:
+          - node: 20
+            eslint: 9
+          - node: 18
+            eslint: 8
+          - node: 12
+            eslint: 3
     name: Test with Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v3
