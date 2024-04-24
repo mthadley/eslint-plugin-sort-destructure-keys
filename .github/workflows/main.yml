@@ -12,7 +12,7 @@ jobs:
             eslint: 8
           - node: 12
             eslint: 3
-    name: Test with Node ${{ matrix.node }}
+    name: node@${{ matrix.node }} and eslint@${{ matrix.eslint }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
