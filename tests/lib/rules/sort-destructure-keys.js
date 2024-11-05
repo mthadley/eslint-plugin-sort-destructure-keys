@@ -322,6 +322,17 @@ function testsWithParser(parser, parserOptions = {}) {
       ],
     });
 
+    testsFor("capitalized variables", {
+      valid: ["const { LAST_NAME, NAME_FIRST, Motto, a, b } = someObject;"],
+      invalid: [
+        {
+          code: "const { NAME_FIRST, Motto, LAST_NAME, b, a } = someObject;",
+          errors: just("Motto", "LAST_NAME"),
+          output: "const { LAST_NAME, NAME_FIRST, Motto, a, b } = someObject;",
+        },
+      ],
+    });
+
     describe("options", () => {
       testsFor("caseSensitive", {
         valid: [
