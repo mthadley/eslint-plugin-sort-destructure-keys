@@ -16,16 +16,16 @@
     "format": "prettier --write \"{lib,tests}/**/*.js\""
   },
   "peerDependencies": {
-    "eslint": "5 - 9"
+    "eslint": "5 - 10"
   },
   "dependencies": {
     "natural-compare-lite": "^1.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/eslint-parser": "^7.15.8",
-    "eslint": "^8.37.0",
-    "prettier": "^3.2.5"
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.26.0",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.1"
   },
   "engines": {
     "node": ">=12"
