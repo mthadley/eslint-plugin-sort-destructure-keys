@@ -28,7 +28,7 @@
     "prettier": "^3.8.1"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "license": "ISC",
   "files": [
