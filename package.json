@@ -11,7 +11,7 @@
   "author": "Michael Hadley",
   "main": "lib/index.js",
   "scripts": {
-    "test": "node --test tests/**/*.js",
+    "test": "node --test",
     "prettier": "prettier --check \"{lib,tests}/**/*.js\"",
     "format": "prettier --write \"{lib,tests}/**/*.js\""
   },
@@ -28,7 +28,7 @@
     "prettier": "^3.8.1"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "license": "ISC",
   "files": [
