@@ -76,6 +76,15 @@ let { B, a, c } = obj;
 
 ## Changelog
 
+### `3.0.0`
+
+- Add compatibility with ESLint 10. ([#322], by [risantos])
+- Drop support for Node versions older than 20. ([#324])
+
+[#322]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/322
+[#324]: https://github.com/mthadley/eslint-plugin-sort-destructure-keys/pull/324
+[risantos]: https://github.com/risantos
+
 ### `2.0.0`
 
 - Drop support for ESLint versions older than 5. ([#269])
