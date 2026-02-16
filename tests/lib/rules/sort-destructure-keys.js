@@ -1,4 +1,5 @@
-const assert = require("assert");
+const { describe } = require("node:test");
+const assert = require("node:assert");
 const rule = require("../../../lib/rules/sort-destructure-keys");
 const eslint = require("eslint");
 
