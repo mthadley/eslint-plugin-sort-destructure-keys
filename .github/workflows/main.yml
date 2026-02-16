@@ -12,8 +12,6 @@ jobs:
             eslint: 9
           - node: 20
             eslint: 8
-          - node: 18
-            eslint: 8
 
     name: node@${{ matrix.node }} and eslint@${{ matrix.eslint }}
     steps:
