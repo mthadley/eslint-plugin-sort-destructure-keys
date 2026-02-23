@@ -27,8 +27,20 @@
     "eslint": "^9.39.2",
     "prettier": "^3.8.1"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "ignore",
+      "version": ">=11.6.2"
+    },
+    "runtime": {
+      "name": "node",
+      "onFail": "ignore",
+      "version": ">=20"
+    }
+  },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "license": "ISC",
   "files": [
