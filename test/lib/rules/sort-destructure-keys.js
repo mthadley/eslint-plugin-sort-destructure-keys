@@ -323,6 +323,140 @@ function testsWithParser(parser, parserOptions = {}) {
       ],
     });
 
+    testsFor("comments", {
+      valid: [
+        `
+          const {
+              // comment for a
+              a, // trailing a
+              b
+          } = someObj;
+        `,
+      ],
+      invalid: [
+        {
+          code: `
+            const {
+                // comment for b
+                b,
+                // comment for a
+                a
+            } = someObj;
+          `,
+          errors: just("b", "a"),
+          output: `
+            const {
+                // comment for a
+                a,
+                // comment for b
+                b
+            } = someObj;
+          `,
+        },
+        {
+          code: `
+            const {
+                b, // comment for b
+                a // comment for a
+            } = someObj;
+          `,
+          errors: just("b", "a"),
+          output: `
+            const {
+                a, // comment for a
+                b // comment for b
+            } = someObj;
+          `,
+        },
+        {
+          code: `
+            const {
+                /* block for c */
+                c, /* trailing c */
+                // first for a
+                // second for a
+                a, // trailing a
+                b,
+            } = someObj;
+          `,
+          errors: just("c", "a"),
+          output: `
+            const {
+                // first for a
+                // second for a
+                a, // trailing a
+                b,
+                /* block for c */
+                c, /* trailing c */
+            } = someObj;
+          `,
+        },
+        {
+          code: `
+            function foo({
+                // comment for b
+                b: renamed = false, // trailing b
+                a,
+                ...rest // trailing rest
+            }) {}
+          `,
+          errors: just("b", "a"),
+          output: `
+            function foo({
+                a,
+                // comment for b
+                b: renamed = false, // trailing b
+                ...rest // trailing rest
+            }) {}
+          `,
+        },
+        // Comments that aren't attached to a property stay in place
+        {
+          code: `
+            const { // header
+                b,
+                a,
+                // dangling
+            } = someObj;
+          `,
+          errors: just("b", "a"),
+          output: `
+            const { // header
+                a,
+                b,
+                // dangling
+            } = someObj;
+          `,
+        },
+        {
+          code: "const {/* b */ b, /* a */ a} = someObj;",
+          errors: just("b", "a"),
+          output: "const {/* a */ a, /* b */ b} = someObj;",
+        },
+        // Don't fix when we can't tell where a comment belongs
+        {
+          code: "const {b /* b */, a} = someObj;",
+          errors: just("b", "a"),
+          output: null,
+        },
+        {
+          code: "const {b, a /* a */} = someObj;",
+          errors: just("b", "a"),
+          output: null,
+        },
+        // Don't fix when a line comment would comment out code
+        {
+          code: `
+            const {
+                b, a // comment for a
+            } = someObj;
+          `,
+          errors: just("b", "a"),
+          output: null,
+        },
+      ],
+    });
+
     describe("options", () => {
       testsFor("caseSensitive", {
         valid: [
